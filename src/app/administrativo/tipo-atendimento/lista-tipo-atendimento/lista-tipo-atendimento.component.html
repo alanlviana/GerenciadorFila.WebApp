@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title">Tipos de Atendimento</h3>
+            <button class="btn btn-primary" [routerLink]="['cadastrar']">Novo</button>
+          </div>
+          <div class="box-body">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th style="width: 50px">#</th>
+                        <th>Descrição</th>
+                        <th style="width: 90px;">Contador Atual</th>
+                        <th style="width: 40px">Ações</th>
+                    </tr>
+
+                    <tr *ngFor="let tipoAtendimento of tiposAtendimento">
+                        <td>{{tipoAtendimento.id}}</td>
+                        <td>{{tipoAtendimento.descricao}}</td>
+                        <td>{{tipoAtendimento.contadorAtual}}</td>
+                        <td>
+                            <button class="btn btn-primary btn-sm" [routerLink]="[tipoAtendimento.id, 'editar']" [state]="{'tipoAtendimento': tipoAtendimento}">Editar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- /.box -->
+      </div>
+</div>

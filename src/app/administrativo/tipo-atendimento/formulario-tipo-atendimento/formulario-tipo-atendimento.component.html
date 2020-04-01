@@ -1,0 +1,43 @@
+<form #tipoAtendimentoForm="ngForm" (ngSubmit)="salvo.emit(tipoAtendimento)">
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label for="codigo">Código</label>
+            <input type="text"  [(ngModel)]="tipoAtendimento.id" name="id"  readonly class="form-control" id="codigo">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="descricao">Descrição</label>
+            <input type="text" [(ngModel)]="tipoAtendimento.descricao" name="descricao" class="form-control" id="descricao">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="prefixo">Prefixo</label>
+            <input type="text"  [(ngModel)]="tipoAtendimento.prefixo" name="prefixo" class="form-control" id="prefixo">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="sufixo">Sufixo</label>
+            <input type="text"  [(ngModel)]="tipoAtendimento.sufixo" name="sufixo" class="form-control" id="sufixo">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="quantidadeDigitos">Quantidade Digitos</label>
+            <input type="number"  [(ngModel)]="tipoAtendimento.quantidadeDigitos" name="quantidadeDigitos" class="form-control" id="quantidadeDigitos">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="tipoIdentificacaoCliente">Tipo Identificação de Cliente</label>
+            <input type="text"  [(ngModel)]="tipoAtendimento.tipoIdentificacaoCliente" name="tipoIdentificacaoCliente" class="form-control" id="tipoIdentificacaoCliente">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="estilo">Estilo</label>
+            <input type="text"  [(ngModel)]="tipoAtendimento.estilo" name="estilo" class="form-control" id="estilo">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-primary btn-block">Salvar</button>
+        </div>
+    </div>
+  </form>
