@@ -12,18 +12,26 @@ export class AtendimentoService {
 
   constructor(private httpClient: HttpClient) { }
 
-  cadastrarAtendimento(idTipoAtendimento: number){
-    console.log("cadastrarAtendimento:"+idTipoAtendimento);
+  CriarAtendimento(idTipoAtendimento: number){
     return this.httpClient.post<Atendimento>(this.api_url+'/atendimento', {
       "IdTipoAtendimento": idTipoAtendimento
     });
   }
 
-  getAll(){
+  ObterTodos(){
     return this.httpClient.get(this.api_url+'/atendimento');
   }
 
-  getByStatus(status: string){
-    return this.httpClient.get(this.api_url+'/atendimento/Status/'+status);
+  ObterPorStatus(status: string){
+    return this.httpClient.get(this.api_url+'/Atendimento/ObterPorStatus?status='+status);
   }
+
+  ProximoAtendimento(){
+    return this.httpClient.post(this.api_url + '/Atendimento/ProximoAtendimento', {});
+  }
+
+  IniciarAtendimento(id: number){
+    return this.httpClient.post(this.api_url + '/Atendimento/'+id+'/IniciarAtendimento', {});
+  }
+
 }

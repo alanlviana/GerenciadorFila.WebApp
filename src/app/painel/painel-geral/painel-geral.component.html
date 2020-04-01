@@ -1,20 +1,37 @@
 <div class="container">
     <div class="row"> 
-        <!-- Cabeçalho-->
-        <h1>Empresa SA</h1>
+        <div class="col-sm-12">
+            <h1>Empresa SA</h1>
+        </div>
     </div>
     <div class="row" style="height: 200px;">
         <div class="col-sm-6">
-            <h2>Últimas chamadas</h2>
-            <li *ngFor="let item of listaUltimasChamadas; let i = index">
-                {{item.identificadorChamada}}
-            </li>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2>Últimas chamadas</h2>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-sm-3" *ngFor="let item of listaUltimasChamadas; let i = index">
+                    <b>{{item.identificadorChamada}}</b>
+                </div>
+            </div>
         </div>
         <div class="col-sm-6">
-            <h2>Sua vez:</h2>
-            <span class="ultimaChamada">
-                {{ultimaChamada?.identificadorChamada}}
-            </span>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2>Sua vez:</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="ultimaChamada">
+                        {{ultimaChamada?.identificadorChamada}}
+                    </span>
+                </div>
+            </div>
+
         </div>
     </div>
 

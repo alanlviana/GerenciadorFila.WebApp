@@ -14,6 +14,8 @@ export class SignalrService {
   constructor() { }
 
   private hubConnection: signalR.HubConnection
+  
+  AtendimentoIniciado: Subject<any> = new Subject();
   AtendimentoInserido: Subject<any> = new Subject();
   StatusAtendimentoAtualizado: Subject<any> = new Subject();
 
@@ -30,5 +32,6 @@ export class SignalrService {
 
       this.hubConnection.on('AtendimentoInserido', data => this.AtendimentoInserido.next(data));
       this.hubConnection.on('StatusAtendimentoAtualizado', data => this.StatusAtendimentoAtualizado.next(data));
+      this.hubConnection.on('AtendimentoIniciado', data => this.AtendimentoIniciado.next(data));
   }
 }

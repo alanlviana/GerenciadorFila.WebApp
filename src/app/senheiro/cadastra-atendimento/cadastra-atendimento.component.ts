@@ -24,7 +24,7 @@ export class CadastraAtendimentoComponent implements OnInit {
   }
 
   cadastrarAtendimento(idTipoAtendimento: number){
-    this.atendimentoService.cadastrarAtendimento(idTipoAtendimento).subscribe(
+    this.atendimentoService.CriarAtendimento(idTipoAtendimento).subscribe(
       atendimento => this.cadatroAtendimentoSucesso(atendimento),
       () => this.cadastroAtendimentoErro())
   }

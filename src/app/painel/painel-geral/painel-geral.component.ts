@@ -18,6 +18,9 @@ export class PainelGeralComponent implements OnInit {
 
   ngOnInit() {
     this.signalRService.startConnection();
+
+
+
     this.buscarUltimasChamadas();
     this.buscarFilaEspera();
 
@@ -26,13 +29,24 @@ export class PainelGeralComponent implements OnInit {
     });
 
     this.signalRService.StatusAtendimentoAtualizado.subscribe((data) => {
+      
+      var audio = new Audio();
+      audio.src = "/assets/alerta.mp3";
+      audio.load();
+      audio.play();
+
+      this.buscarUltimasChamadas();
+      this.buscarFilaEspera();
+    });
+
+    this.signalRService.AtendimentoIniciado.subscribe((data) => {     
       this.buscarUltimasChamadas();
       this.buscarFilaEspera();
     });
   }
 
   buscarUltimasChamadas(){
-    this.atendimentoService.getByStatus("Aguardando").subscribe(data => {
+    this.atendimentoService.ObterPorStatus("Aguardando").subscribe(data => {
       this.listaUltimasChamadas = data as Array<object>;
       if (this.listaUltimasChamadas.length > 0){
         this.ultimaChamada = this.listaUltimasChamadas[this.listaUltimasChamadas.length-1];
@@ -43,7 +57,7 @@ export class PainelGeralComponent implements OnInit {
   }
 
   buscarFilaEspera(){
-    this.atendimentoService.getByStatus("Pendente").subscribe(data => {
+    this.atendimentoService.ObterPorStatus("Pendente").subscribe(data => {
       this.listaAguardando = data as Array<object>;
     });
   }
