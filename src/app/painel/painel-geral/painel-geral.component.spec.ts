@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { PainelGeralComponent } from './painel-geral.component';
 
@@ -6,7 +6,7 @@ describe('PainelGeralComponent', () => {
   let component: PainelGeralComponent;
   let fixture: ComponentFixture<PainelGeralComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ PainelGeralComponent ]
     })
