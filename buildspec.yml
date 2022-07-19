@@ -1,0 +1,15 @@
+version: 0.2
+env:
+  variables:
+    APP_NAME: "gerenciador-fila-web-app"
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14.x
+    commands:
+      - echo install process started
+      - npm install && npm install -g @angular/cli
+  build:
+    commands:
+      - echo build process started now
+      - ng build --configuration=production
