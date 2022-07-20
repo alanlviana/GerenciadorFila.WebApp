@@ -13,3 +13,8 @@ phases:
     commands:
       - echo build process started now
       - ng build --configuration=production
+artifacts:
+    files:
+        - '**/*'
+    base-directory: 'dist*'
+    discard-paths: yes
